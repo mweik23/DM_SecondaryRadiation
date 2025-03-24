@@ -1,0 +1,152 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  1 13:17:33 2021
+
+@author: mitchellweikert
+"""
+
+import numpy as np
+import hepmcio_modified as hepmcio
+import os
+import matplotlib.pyplot as plt
+
+me = 5.10999*10**(-4)  
+this_path = os.path.realpath(__file__)
+in_path = this_path.split('Secondary_radiation/')[0]
+out_path = this_path.split('scripts')[0]
+
+Events_path = in_path + 'outputdir/'
+
+def get_hepmc_names(mx, Events_path=Events_path):
+    run_list = os.listdir(Events_path)
+    run_set = []
+    for run in run_list:
+        if run.split('.')[-1] == 'gz' and run.split('.')[-2]=='tar':
+            print('unzipping ' + run)
+            run_dir = run.split('.tar.gz')[0]
+            os.system('mkdir ' + Events_path + run_dir)
+            os.system('tar -xvf ' + Events_path + run + ' -C ' + Events_path+run_dir + ' --strip-components=1')
+            os.system('rm ' + Events_path + run)
+        elif run.split('.')[-1] == 'gz':
+            os.system('gunzip '+ Events_path + run)
+    run_list = os.listdir(Events_path)
+    for run in run_list: 
+        if os.path.isdir(Events_path + run):
+            file_list = os.listdir(Events_path + run)
+            for file_name in file_list:
+                dsp_file = file_name.split('.')
+                if 'hepmc' in dsp_file:
+                    tag_name = file_name.split('_')[0]
+                    str_mx = str(mx)
+                    if tag_name == 'E' + str_mx:
+                        run_set.append(run)
+                    break
+
+    hepmc_path_set = []
+    hepmcgz_path_set = []
+    hepmc_full_path_set = []
+    if run_set == []:
+        print('ERROR: No hepmc file for requested energy')
+    else:
+        for run in run_set:
+            file_list = os.listdir(Events_path + run)
+            for file_name in file_list:
+                dsp_file = file_name.split('.')
+                if dsp_file[-1] == 'hepmc':
+                    hepmc_path_set.append(run + '/' + file_name)
+                    unz2z = run + '/' + file_name + '.gz'
+                    if unz2z in hepmcgz_path_set:
+                        hepmcgz_path_set.remove(unz2z)
+                    break
+                elif dsp_file[-2] == 'hepmc' and dsp_file[-1] == 'gz':
+                    hepmcgz_path_set.append(run + '/' + file_name)
+                  
+    for zipped_path in hepmcgz_path_set:
+        os.system('gunzip '+ Events_path + zipped_path)
+        unzipped_path = zipped_path.replace('.gz', '')
+        hepmc_path_set.append(unzipped_path)
+    
+    for unzipped_path in hepmc_path_set:
+        hepmc_full_path_set.append(Events_path + unzipped_path)
+    
+    return hepmc_full_path_set
+
+def hepmc_to_list(file_path):
+    reader = hepmcio.HepMCReader(file_path)
+    evtnum = 0
+    enum = 0
+    gammanum = 0
+    eE = []
+    gammaE = []
+    while True:
+        evtnum += 1
+        evt = reader.next()
+        if not evt:
+            evtnum -= 1
+            break
+        if evtnum%1000==0:
+            print('event number: ', evtnum)
+            print('number of particles: ', len(evt.particles))
+        for i in range(len(evt.particles)):
+            if evt.particles[i+1].status == 1:
+                if np.abs(evt.particles[i+1].pid)==11:
+                    enum+=1
+                    eE.append(evt.particles[i+1].mom[3])
+                if np.abs(evt.particles[i+1].pid)==22:
+                    gammanum+=1
+                    gammaE.append(evt.particles[i+1].mom[3])
+    return eE, gammaE, evtnum
+
+def get_spectra(eE, gammaE, numev, mx, plot_e=False, plot_gamma=False):
+    eE_ar = np.array(eE)
+    gammaE_ar = np.array(gammaE)
+    max_eE = np.max(eE_ar)
+    if max_eE>=mx:
+        print('electron energies are larger than or equal to dark matter mass. Check Pythia output.')
+    e_dsy, e_bins = np.histogram(eE_ar, np.logspace(np.log10(me), np.log10(mx), 300), density=True)
+    e_spec = e_dsy*len(eE_ar)/numev
+
+    if plot_e:   
+        fig = plt.figure()
+        ax = fig.add_subplot()
+        ax.plot(e_bins[1:], e_spec)
+        ax.set_xscale('log')
+        ax.set_yscale('log')
+        plt.xlabel('E (GeV)')
+        plt.ylabel('dN_e/dE (GeV^-1)')
+        plt.title('m_x = '+ str(mx) + ' GeV')
+        plt.savefig(out_path + 'figs/' + 'mx' + str(mx) + '_plot_espec.pdf')
+
+    gamma_dsy, gamma_bins = np.histogram(gammaE_ar, np.logspace(np.log10(np.min(gammaE_ar)), np.log10(np.max(gammaE_ar)), 300), density=True)
+    gamma_spec = gamma_dsy*len(gammaE_ar)/numev
+
+    if plot_gamma:
+        fig = plt.figure()
+        ax = fig.add_subplot()
+        ax.plot(gamma_bins[:-1], gamma_spec)
+        ax.set_xscale('log')
+        ax.set_yscale('log')
+        plt.xlabel('E (GeV)')
+        plt.ylabel('dN_gamma/dE (GeV^-1)')
+        plt.title('m_x = '+ str(mx) + ' GeV')
+        plt.savefig(out_path + 'figs/' + 'mx' + str(mx) + '_plot_gammaspec.pdf')
+    
+    return e_bins, e_spec, gamma_bins, gamma_spec
+
+if __name__ == '__main__':
+    mx_ls = [12.1, 48.8, 313.9]
+    for mx in mx_ls:
+    
+        hepmc_paths = get_hepmc_names(mx)
+        print(hepmc_paths)
+        eE = []
+        gammaE = []
+        numev = 0
+        for hepmc_path in hepmc_paths:
+            eE_cur, gammaE_cur, numev_cur = hepmc_to_list(hepmc_path)
+            eE = eE+eE_cur
+            gammaE = gammaE + gammaE_cur
+            numev = numev + numev_cur
+        
+        e_bins, e_spec, gamma_bins, gamma_spec = get_spectra(eE, gammaE, numev, mx, plot_e=True, plot_gamma=True)

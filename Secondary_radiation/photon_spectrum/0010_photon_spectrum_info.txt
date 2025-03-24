@@ -1,0 +1,4 @@
+photon_spectrum
+
+Dark Matter Particle Mass: 48.8GeV
+Annihilation Channel: bb_bar

@@ -1,0 +1,10 @@
+universe = vanilla
++AccountingGroup = "group_rutgers.mjw283"
+Executable = /het/p4/mjw283/eventgen_wd/scan_exec/exec_0500_3e+27.sh
+getenv = True
+should_transfer_files = NO
+Arguments = 
+Output = /het/p4/mjw283/condor/compute_signal_mx_500.0_D0_3e+27_unweighted.out
+Error = /het/p4/mjw283/condor/compute_signal_mx_500.0_D0_3e+27_unweighted.err
+Log = /het/p4/mjw283/condor/script.condor
+Queue 1

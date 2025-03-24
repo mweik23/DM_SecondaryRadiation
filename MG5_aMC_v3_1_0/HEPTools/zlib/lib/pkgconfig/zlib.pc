@@ -1,0 +1,13 @@
+prefix=/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+sharedlibdir=${libdir}
+includedir=${prefix}/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.10
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

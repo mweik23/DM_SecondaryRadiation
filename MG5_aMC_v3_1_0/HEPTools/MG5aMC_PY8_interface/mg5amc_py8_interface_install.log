@@ -1,0 +1,5 @@
+------------------------------------------------
+MG5aMC_PY8_interface compilation output log:
+b'g++ MG5aMC_PY8_interface.cc ../lib/libpythia8.a -o MG5aMC_PY8_interface -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/hepmc/include\\\n /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/MG5aMC_PY8_interface/static_library_dependencies/libHepMC.a -I../include -ldl -fPIC -lstdc++ -DHEPMC2HACK -L../lib -Wl,-rpath,../lib -lpythia8 -ldl   -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include  -L/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/lib -Wl,-rpath,/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/lib -lz\n'
+------------------------------------------------
+Successful compilation of the MG5aMC_PY8_interface.

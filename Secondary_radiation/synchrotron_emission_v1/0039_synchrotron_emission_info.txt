@@ -1,0 +1,19 @@
+synchrotron_emission
+
+Dark Matter Particle Mass: 38.6GeV
+Annihilation Channel: bb_bar
+Thermally Averaged Cross-section: 2.2e-26cm^3/s
+Diffusion Radius: 50kpc
+Angular Distance: 780kpc
+Diffusion Coefficient Normalization: 3e+29cm^2/s
+Magnetic Field Model: model type- Exponential; B0- 10uG; Scale Radius- 1.5kpc; 
+Magnetic Field Model: model type- Exponential; B0- 8uG; Scale Radius- 20kpc; 
+Stellar Radiation Energy Density Model: model type- Exponential; rho0- 8eV/cm^3; Scale Radius- 4.3kpc; 
+Dark matter Density Model: model type- NFW; rho0- 0.43GeV/cm^3; gamma- 1.25; Scale Radius- 16.5kpc; 
+Number of r steps: 800
+Number of E steps: 400
+Stellar Emmission Distribution Parameters: average temperature- 5500K; standard deviation of temperature- 1000K; 
+Number of rho steps: 60
+Number of nu steps: 70
+rho_range: (0.1, 35) (kpc)
+nu_range: (100000.0, 1e+24) (Hz)

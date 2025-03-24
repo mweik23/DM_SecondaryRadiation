@@ -1,0 +1,126 @@
+ Set environment variables
+ >> Unpack PYTHIA8
+ >> Enter PYTHIA8 directory
+ >> Configure PYTHIA8
+rm -rf tmp lib
+rm -f examples/*Dct.*
+rm -f examples/*[0-9]
+rm -f examples/weakbosons.lhe
+rm -f examples/Pythia8.promc
+rm -f examples/hist.root
+find . -type f -name Makefile.inc -print0 | xargs -0 rm -f
+find . -type f -name "*~" -print0 | xargs -0 rm -f
+find . -type f -name "#*" -print0 | xargs -0 rm -f
+rm -f share/Pythia8/AUTHORS
+rm -f share/Pythia8/COPYING
+rm -f share/Pythia8/GUIDELINES
+rm -f share/Pythia8/README
+
+Running PYTHIA configuration script. Now is Wed Jun  2 11:50:47 EDT 2021
+---------------------------------------------------------------------
+|                    PYTHIA Configuration Summary                   |
+---------------------------------------------------------------------
+  Architecture                = LINUX
+  C++ Compiler     CXX        = g++
+  C++ Flags        CXX_COMMON = -ldl -fPIC -lstdc++ -DHEPMC2HACK
+  C++ Flags (.so)  CXX_SHARED = -shared
+  Further options             = 
+
+The following optional external packages will be used:
+[1m + HEPMC2(B[m (in /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/hepmc/lib)
+[1m + GZIP(B[m
+
+./configure ./configure --prefix=/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8/ --with-hepmc2=/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/hepmc --with-hepmc2-include=/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/hepmc/include --with-gzip=/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib  --cxx-common='-ldl -fPIC -lstdc++ -DHEPMC2HACK'
+g++
+ >> Compile PYTHIA8
+g++ src/Analysis.cc -o tmp/Analysis.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/Basics.cc -o tmp/Basics.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/BeamParticle.cc -o tmp/BeamParticle.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/BeamRemnants.cc -o tmp/BeamRemnants.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/BeamShape.cc -o tmp/BeamShape.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/BoseEinstein.cc -o tmp/BoseEinstein.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ColourReconnection.cc -o tmp/ColourReconnection.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ColourTracing.cc -o tmp/ColourTracing.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/DeuteronProduction.cc -o tmp/DeuteronProduction.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/Event.cc -o tmp/Event.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/FJcore.cc -o tmp/FJcore.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/FragmentationFlavZpT.cc -o tmp/FragmentationFlavZpT.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/FragmentationSystems.cc -o tmp/FragmentationSystems.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/GammaKinematics.cc -o tmp/GammaKinematics.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/HIUserHooks.cc -o tmp/HIUserHooks.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/HadronLevel.cc -o tmp/HadronLevel.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/HadronScatter.cc -o tmp/HadronScatter.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/HardDiffraction.cc -o tmp/HardDiffraction.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/HeavyIons.cc -o tmp/HeavyIons.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/HelicityBasics.cc -o tmp/HelicityBasics.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/HelicityMatrixElements.cc -o tmp/HelicityMatrixElements.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/HiddenValleyFragmentation.cc -o tmp/HiddenValleyFragmentation.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/History.cc -o tmp/History.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/Info.cc -o tmp/Info.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/JunctionSplitting.cc -o tmp/JunctionSplitting.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/LHEF3.cc -o tmp/LHEF3.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/LesHouches.cc -o tmp/LesHouches.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/Merging.cc -o tmp/Merging.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/MergingHooks.cc -o tmp/MergingHooks.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/MiniStringFragmentation.cc -o tmp/MiniStringFragmentation.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/MultipartonInteractions.cc -o tmp/MultipartonInteractions.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ParticleData.cc -o tmp/ParticleData.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ParticleDecays.cc -o tmp/ParticleDecays.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/PartonDistributions.cc -o tmp/PartonDistributions.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/PartonLevel.cc -o tmp/PartonLevel.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/PartonSystems.cc -o tmp/PartonSystems.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/PartonVertex.cc -o tmp/PartonVertex.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/PhaseSpace.cc -o tmp/PhaseSpace.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ProcessContainer.cc -o tmp/ProcessContainer.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ProcessLevel.cc -o tmp/ProcessLevel.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/Pythia.cc -o tmp/Pythia.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include -DXMLDIR=\"/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//share/Pythia8/xmldoc\"
+g++ src/PythiaStdlib.cc -o tmp/PythiaStdlib.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/RHadrons.cc -o tmp/RHadrons.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ResonanceDecays.cc -o tmp/ResonanceDecays.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ResonanceWidths.cc -o tmp/ResonanceWidths.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/ResonanceWidthsDM.cc -o tmp/ResonanceWidthsDM.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/Ropewalk.cc -o tmp/Ropewalk.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SLHAinterface.cc -o tmp/SLHAinterface.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/Settings.cc -o tmp/Settings.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaCompositeness.cc -o tmp/SigmaCompositeness.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaDM.cc -o tmp/SigmaDM.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaEW.cc -o tmp/SigmaEW.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaExtraDim.cc -o tmp/SigmaExtraDim.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaGeneric.cc -o tmp/SigmaGeneric.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaHiggs.cc -o tmp/SigmaHiggs.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaLeftRightSym.cc -o tmp/SigmaLeftRightSym.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaLeptoquark.cc -o tmp/SigmaLeptoquark.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaNewGaugeBosons.cc -o tmp/SigmaNewGaugeBosons.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaOnia.cc -o tmp/SigmaOnia.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaProcess.cc -o tmp/SigmaProcess.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaQCD.cc -o tmp/SigmaQCD.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaSUSY.cc -o tmp/SigmaSUSY.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SigmaTotal.cc -o tmp/SigmaTotal.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SimpleSpaceShower.cc -o tmp/SimpleSpaceShower.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SimpleTimeShower.cc -o tmp/SimpleTimeShower.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SimpleWeakShowerMEs.cc -o tmp/SimpleWeakShowerMEs.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/StandardModel.cc -o tmp/StandardModel.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/Streams.cc -o tmp/Streams.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/StringFragmentation.cc -o tmp/StringFragmentation.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/StringLength.cc -o tmp/StringLength.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SusyCouplings.cc -o tmp/SusyCouplings.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SusyLesHouches.cc -o tmp/SusyLesHouches.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SusyResonanceWidths.cc -o tmp/SusyResonanceWidths.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/SusyWidthFunctions.cc -o tmp/SusyWidthFunctions.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/TauDecays.cc -o tmp/TauDecays.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+g++ src/UserHooks.cc -o tmp/UserHooks.o -c -MD -Iinclude -ldl -fPIC -lstdc++ -DHEPMC2HACK -DGZIPSUPPORT -I/het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/zlib/include
+rm -f lib/libpythia8.so
+ar cru lib/libpythia8.a tmp/Analysis.o tmp/Basics.o tmp/BeamParticle.o tmp/BeamRemnants.o tmp/BeamShape.o tmp/BoseEinstein.o tmp/ColourReconnection.o tmp/ColourTracing.o tmp/DeuteronProduction.o tmp/Event.o tmp/FJcore.o tmp/FragmentationFlavZpT.o tmp/FragmentationSystems.o tmp/GammaKinematics.o tmp/HIUserHooks.o tmp/HadronLevel.o tmp/HadronScatter.o tmp/HardDiffraction.o tmp/HeavyIons.o tmp/HelicityBasics.o tmp/HelicityMatrixElements.o tmp/HiddenValleyFragmentation.o tmp/History.o tmp/Info.o tmp/JunctionSplitting.o tmp/LHEF3.o tmp/LesHouches.o tmp/Merging.o tmp/MergingHooks.o tmp/MiniStringFragmentation.o tmp/MultipartonInteractions.o tmp/ParticleData.o tmp/ParticleDecays.o tmp/PartonDistributions.o tmp/PartonLevel.o tmp/PartonSystems.o tmp/PartonVertex.o tmp/PhaseSpace.o tmp/ProcessContainer.o tmp/ProcessLevel.o tmp/Pythia.o tmp/PythiaStdlib.o tmp/RHadrons.o tmp/ResonanceDecays.o tmp/ResonanceWidths.o tmp/ResonanceWidthsDM.o tmp/Ropewalk.o tmp/SLHAinterface.o tmp/Settings.o tmp/SigmaCompositeness.o tmp/SigmaDM.o tmp/SigmaEW.o tmp/SigmaExtraDim.o tmp/SigmaGeneric.o tmp/SigmaHiggs.o tmp/SigmaLeftRightSym.o tmp/SigmaLeptoquark.o tmp/SigmaNewGaugeBosons.o tmp/SigmaOnia.o tmp/SigmaProcess.o tmp/SigmaQCD.o tmp/SigmaSUSY.o tmp/SigmaTotal.o tmp/SimpleSpaceShower.o tmp/SimpleTimeShower.o tmp/SimpleWeakShowerMEs.o tmp/StandardModel.o tmp/Streams.o tmp/StringFragmentation.o tmp/StringLength.o tmp/SusyCouplings.o tmp/SusyLesHouches.o tmp/SusyResonanceWidths.o tmp/SusyWidthFunctions.o tmp/TauDecays.o tmp/UserHooks.o
+cp AUTHORS share/Pythia8/AUTHORS
+cp COPYING share/Pythia8/COPYING
+cp GUIDELINES share/Pythia8/GUIDELINES
+cp README share/Pythia8/README
+cp Makefile.inc share/Pythia8/../../examples/Makefile.inc
+mkdir -p /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//bin /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//include /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//lib /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//share/Pythia8
+rm -f /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//lib/libpythia8.so
+rsync -a bin/* /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//bin --exclude .svn
+rsync -a include/* /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//include --exclude .svn
+rsync -a lib/* /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//lib --exclude .svn
+rsync -a share/Pythia8/* /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//share/Pythia8 --exclude .svn
+rsync -a examples /het/p4/mjw283/eventgen_wd/MG5_aMC_v3_1_0/HEPTools/pythia8//share/Pythia8 --exclude .svn
+ Finished PYTHIA8 installation
